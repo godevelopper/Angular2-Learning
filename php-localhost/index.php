@@ -1,20 +1,6 @@
 <?php
-/**
- * Created by opium.
- * Date: 27.01.2017
- * Time: 15:41
- */
 
-
-header("Access-Control-Allow-Origin: http://localhost:3000");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-header("Access-Control-Allow-Credentials: true");
-header("Access-Control-Allow-Headers: x-id");
-
-/*header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-header("Access-Control-Allow-Headers: x-id");*/
-
+header('Access-Control-Allow-Origin: *');
 
 $data = array(
     array('id' => '1','first_name' => 'Cynthia'),
@@ -25,3 +11,5 @@ $data = array(
 );
 
 echo json_encode($data);
+
+file_put_contents('log.txt', 'request');
