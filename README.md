@@ -1,4 +1,4 @@
-# Angular2-Learning
+# Angular2 PHP example app 
 Workspace for learning of Angular2
 
 - How to configurate project for working with PHP ? 
