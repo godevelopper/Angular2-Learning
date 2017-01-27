@@ -1,7 +1,30 @@
-import { Component } from '@angular/core';
+import { Injectable, Component, OnInit } from '@angular/core';
+import {Http, Response} from '@angular/http';
+
 
 @Component({
   selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1>`,
+  template: `<ul>
+		<li *ngFor="let person of data">
+		   {{person.id}} - {{person.first_name}}
+		</li>
+	     </ul>`
 })
-export class AppComponent  { name = 'Angular'; }
+
+
+export class AppComponent implements OnInit{
+
+  private data: string;
+
+  constructor(private http: Http){ }
+
+  ngOnInit(){
+    this.getData();
+  }
+
+  getData(){
+    this.http
+        .get('http://localhost/php-localhost/index.php')
+        .subscribe(res => this.data = res.json());
+  }
+}
